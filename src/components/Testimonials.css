@@ -1,0 +1,208 @@
+/* Testimonials Section Styles */
+.testimonials-section {
+  padding: clamp(60px, 12vw, 100px) 0;
+  background: linear-gradient(135deg, #2c2c6c 0%, #1f1f3b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(77,181,255,0.05) 0%, transparent 50%), 
+              radial-gradient(circle at 80% 20%, rgba(77,181,255,0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testimonials-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.testimonials-marquee {
+  overflow: hidden;
+  /* allow inner text to wrap normally so long quotes don't get truncated */
+  white-space: normal;
+  position: relative;
+}
+
+.testimonials-track {
+  display: flex;
+  align-items: center;
+  animation: scroll-left 28s linear infinite;
+  gap: 2.5rem;
+}
+
+.testimonials-marquee:hover .testimonials-track {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(77, 181, 255, 0.12);
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  /* allow content to be visible if it needs more space */
+  overflow: visible;
+  min-width: 320px;
+  max-width: 640px;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4db5ff, #357abd, #4db5ff);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  border-color: rgba(77, 181, 255, 0.4);
+}
+
+.testimonial-card:hover::before {
+  transform: scaleX(1);
+}
+
+.testimonial-content {
+  text-align: left;
+  /* ensure inner text wraps and breaks long words */
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.testimonial-quote {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 1.5rem;
+  position: relative; /* so the decorative quote can be absolutely positioned */
+}
+
+.testimonial-quote::before {
+  content: '"';
+  font-size: 3rem;
+  color: #4db5ff;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-family: serif;
+  opacity: 0.22;
+}
+
+.testimonial-author {
+  border-top: 1px solid rgba(77, 181, 255, 0.08);
+  padding-top: 1.25rem;
+}
+
+.testimonial-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.testimonial-role {
+  font-size: 0.85rem;
+  color: rgba(77, 181, 255, 0.9);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+/* Keyframes for scroll animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: clamp(40px, 10vw, 60px) 0;
+  }
+  
+  .testimonials-header {
+    margin-bottom: 2.5rem;
+  }
+  
+  .testimonial-card {
+    flex: 0 0 280px;
+    padding: 2rem 1.5rem;
+  }
+  
+  .testimonials-track {
+    gap: 1.5rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 1rem;
+  }
+  
+  .testimonial-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-card {
+    flex: 0 0 250px;
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .testimonials-track {
+    gap: 1rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .testimonial-name {
+    font-size: 1rem;
+  }
+  
+  .testimonial-role {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,185 @@
+/* Reset and base styles (mobile-first) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Color palette */
+  --color-bg: #1f1f3b;
+  --color-bg-variant: #2c2c6c;
+  --color-primary: #4db5ff;
+  --color-primary-variant: rgba(77, 181, 255, 0.6);
+  --color-white: #fff;
+  --color-light: rgba(255, 255, 255, 0.6);
+
+  /* Layout */
+  --container-max-width: 1100px;
+  --container-padding: 1rem;
+  --gutter: 1.25rem;
+
+  --transition: all 350ms ease;
+}
+
+/* Light theme variables (applied when data-theme="light") */
+:root[data-theme='light'], [data-theme='light'] {
+  --color-bg: #f6f8fb;
+  --color-bg-variant: #e9eef6;
+  --color-primary: #0b76ff;
+  --color-primary-variant: rgba(11,118,255,0.12);
+  --color-white: #0b1b2b; /* use as primary text color on light themes */
+  --color-light: rgba(10, 18, 28, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styling */
+/* Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(77,181,255,0.18);
+  border-radius: 10px;
+  border: 3px solid transparent; /* gives a gap effect */
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(77,181,255,0.32);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(77,181,255,0.18) transparent;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+.App {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtle animated background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(135deg, rgba(77,181,255,0.03), rgba(44,44,108,0.05));
+  opacity: 1;
+  will-change: transform, opacity;
+  animation: bgMove 60s linear infinite;
+}
+
+@keyframes bgMove {
+  from { transform: translateX(0) translateY(0); }
+  to { transform: translateX(-20px) translateY(-20px); }
+}
+
+/* Low-cost parallax accent */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(ellipse at 20% 20%, rgba(77,181,255,0.02), transparent 30%), 
+              radial-gradient(ellipse at 80% 80%, rgba(255,255,255,0.01), transparent 25%);
+  transform: translateZ(0);
+  pointer-events: none;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  padding: 0 var(--container-padding);
+  margin: 0 auto;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 500;
+}
+
+h1 { font-size: 2rem; }
+
+section { margin-bottom: 3.5rem; }
+
+section > h2, section > h5 { text-align: center; color: var(--color-light); }
+section > h2 { color: var(--color-primary); margin-bottom: 1.6rem; }
+
+.text-light { color: var(--color-light); }
+
+a { color: var(--color-primary); transition: var(--transition); }
+a:hover { color: var(--color-white); }
+a{
+    text-decoration: none;
+}
+.btn {
+  display: inline-block;
+  color: var(--color-primary);
+  padding: 0.6rem 1rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid var(--color-primary);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.btn:hover { background: var(--color-white); color: var(--color-bg-variant); border-color: transparent; }
+.btn-primary { background: var(--color-primary); color: var(--color-bg); }
+
+img { display: block; max-width: 100%; height: auto; }
+
+/* Larger screens */
+@media screen and (min-width: 768px) { h1 { font-size: 2.4rem; } }
+@media screen and (min-width: 1024px) { h1 { font-size: 2.6rem; } section { margin-bottom: 4.5rem; } }
+
+/* Enhanced animations */
+@keyframes fadeInUp { 
+  from { opacity: 0; transform: translateY(30px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+section { opacity: 0; transform: translateY(30px); transition: opacity 0.5s, transform 0.5s; }
+section.visible { animation: fadeInUp 0.7s forwards; }

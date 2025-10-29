@@ -1,0 +1,36 @@
+/* Footer specific styles */
+footer a:hover {
+  color: #4db5ff !important;
+}
+
+/* Social media hover effects */
+footer a[href*="twitter"]:hover {
+  color: #1DA1F2 !important;
+}
+
+footer a[href*="linkedin"]:hover {
+  color: #0077B5 !important;
+}
+
+footer a[href*="github"]:hover {
+  color: #333 !important;
+}
+
+footer a[href*="instagram"]:hover {
+  color: #E4405F !important;
+}
+
+footer a[href*="discord"]:hover {
+  color: #5865F2 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+  
+  footer .social-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
