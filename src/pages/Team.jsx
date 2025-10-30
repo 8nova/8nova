@@ -1,5 +1,5 @@
 import './Team.css'
-import selassie from "../assets/profile.jpg"
+import selassie from "../assets/selassie.png"
 import cyber from "../assets/cyber.jpg"
 import consistency from "../assets/consistency.jpg"
 import kasim from "../assets/kasim.jpg"

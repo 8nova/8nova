@@ -57,11 +57,12 @@
 
 /* Chat Window */
 .assistant-chat-window {
-  position: absolute;
+  /* use fixed positioning to avoid being clipped on mobile and to follow the viewport */
+  position: fixed;
   bottom: 80px;
-  right: 0;
-  width: 350px;
-  height: 500px;
+  right: 20px;
+  width: 360px;
+  height: 520px;
   background: white;
   border-radius: 20px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -70,6 +71,7 @@
   overflow: hidden;
   animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(77, 181, 255, 0.1);
+  will-change: transform;
 }
 
 @keyframes slideUp {
@@ -133,7 +135,7 @@
 /* Messages Area */
 .assistant-messages {
   flex: 1;
-  padding: 20px;
+  padding: 20px 20px 28px; /* extra bottom padding so last message isn't hidden by input */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -160,6 +162,8 @@
   border-radius: 18px;
   position: relative;
   word-wrap: break-word;
+  white-space: pre-wrap; /* preserve line breaks and wrap long text */
+  overflow-wrap: anywhere;
 }
 
 .assistant-message-content .message-bubble {
@@ -259,13 +263,15 @@
   }
   
   .assistant-chat-window {
-    width: calc(100vw - 30px);
-    height: 450px;
+    /* mobile: full width with comfortable side margins */
+    position: fixed;
+    left: 15px;
+    right: 15px;
     bottom: 75px;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
-    max-width: 350px;
+    width: auto;
+    max-width: none;
+    height: calc(100vh - 160px); /* leave space for browser chrome and toggle button */
+    border-radius: 14px;
   }
   
   .assistant-messages {
@@ -277,7 +283,7 @@
   }
   
   .message-bubble {
-    max-width: 85%;
+    max-width: 100%;
   }
 }
 
@@ -294,10 +300,14 @@
   }
   
   .assistant-chat-window {
-    width: calc(100vw - 20px);
-    height: 400px;
+    position: fixed;
+    left: 10px;
+    right: 10px;
     bottom: 70px;
-    max-width: 320px;
+    width: auto;
+    max-width: none;
+    height: calc(100vh - 140px);
+    border-radius: 12px;
   }
   
   .assistant-header {
@@ -309,17 +319,17 @@
   }
   
   .assistant-messages {
-    padding: 12px;
+    padding: 12px 12px 20px;
     gap: 12px;
   }
   
   .assistant-input-container {
-    padding: 12px;
+    padding: 10px 12px;
   }
   
   .assistant-input {
     padding: 10px 14px;
-    font-size: 13px;
+    font-size: 14px;
   }
   
   .assistant-send-btn {
