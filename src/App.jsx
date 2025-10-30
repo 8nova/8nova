@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import Assistant from './components/Assistant'
@@ -10,7 +10,10 @@ import Contact from './pages/Contact'
 
 function App() {
   return (
-    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    // Use HashRouter to avoid server-side 404s on page refresh for client-side routes.
+    // This keeps routing working even when the server isn't configured to rewrite
+    // requests to `index.html` (useful for static hosts).
+    <Router>
       <div className="App">
         <Navigation />
         <main>

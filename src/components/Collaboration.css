@@ -198,8 +198,19 @@
     gap: 1.5rem;
   }
   
+  /* Disable horizontal marquee and stack collaboration cards on mobile */
   .collaboration-track {
     gap: 2rem;
+    animation: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .collaboration-content {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
   }
   
   .collaboration-text {

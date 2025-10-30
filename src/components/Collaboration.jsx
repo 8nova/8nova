@@ -23,22 +23,6 @@ const Collaboration = () => {
                 </Link>
               </div>
             </div>
-            
-            {/* Duplicate content for seamless loop */}
-            <div className="collaboration-content">
-              <div className="collaboration-header">
-                <h2 className="collaboration-title">Collaborate With Us</h2>
-              </div>
-              <div className="collaboration-body">
-                <p className="collaboration-text">
-                  We believe in building together. Whether you're a student, mentor, or organization, 
-                  there's a place for you in the 8nova journey.
-                </p>
-                <Link to="/contact" className="collaboration-cta">
-                  Join Our Mission
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>
