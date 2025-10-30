@@ -35,7 +35,7 @@ const Team = () => {
     },
     {
       name: "Waliu Yelabeyiani Bukari",
-      role: "Graphic Designer",
+      role: "Frontend Devoloper",
       bio: "The mastermind behind our technical foundation. Waliu builds systems that are not just functional, but elegant and scalable.",
       avatar: <img src={consistency} alt="Waliu Bukari" className="member-avatar" />,
       socialLinks: {
