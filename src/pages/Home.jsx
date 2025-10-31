@@ -3,42 +3,23 @@ import { Link } from 'react-router-dom'
 import { FaLightbulb, FaHandshake, FaRocket, FaChevronDown } from 'react-icons/fa'
 import './Home.css'
 import backgroundVideo from '../assets/background.mp4';
-import { useEffect, useState } from 'react';
 import Testimonials from '../components/Testimonials';
 import Collaboration from '../components/Collaboration';
 
 // ...existing code...
 
 const Home = () => {
-  const [loadVideo, setLoadVideo] = useState(false);
-
-  useEffect(() => {
-    // Avoid loading the large background video on mobile devices.
-    const isMobile = typeof navigator !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent);
-    if (!isMobile) {
-      // Defer video load slightly so initial paint isn't blocked
-      const t = setTimeout(() => setLoadVideo(true), 300);
-      return () => clearTimeout(t);
-    }
-  }, []);
-
   return (
     <div className="home-bg-wrapper" style={{ minHeight: '100vh', color: 'white', position: 'relative', overflow: 'hidden' }}>
       <div className="home-video-bg">
-        {loadVideo ? (
-          <video
-            src={backgroundVideo}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            poster="/assets/logo-eb0ed693.jpg"
-          />
-        ) : (
-          // lightweight poster while video not loaded
-          <img src="/assets/logo-eb0ed693.jpg" alt="background poster" style={{width:'100%',height:'100%',objectFit:'cover'}} />
-        )}
+        <video
+          src={backgroundVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        />
       </div>
       <div className="home-overlay" aria-hidden="true"></div>
       {/* Animated background elements */}

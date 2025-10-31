@@ -150,6 +150,18 @@
   filter: brightness(0.9) contrast(1.1);
 }
 
+/* support the lazy image class used by the component */
+.member-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: all 0.3s ease;
+  filter: brightness(0.9) contrast(1.1);
+}
+
 .team-member:hover .member-avatar img {
   filter: brightness(1) contrast(1.2);
   transform: scale(1.02);

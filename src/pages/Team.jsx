@@ -9,13 +9,57 @@ import Aaron from "../assets/Aaron.jpg"
 import { FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa'
 import tutu from "../assets/tutu.jpg"
 
+import { useRef, useState, useEffect } from 'react'
+
+const LazyImage = ({ src, alt, className }) => {
+  const imgRef = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    if (!imgRef.current) return
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            setIsVisible(true)
+            obs.disconnect()
+          }
+        })
+      }, { rootMargin: '200px' })
+      obs.observe(imgRef.current)
+      return () => obs.disconnect()
+    } else {
+      // fallback: load immediately
+      setIsVisible(true)
+    }
+  }, [])
+
+  return (
+    <img
+      ref={imgRef}
+      src={isVisible ? src : undefined}
+      alt={alt}
+      className={className}
+      loading="lazy"
+      decoding="async"
+      fetchpriority="low"
+      onLoad={() => setLoaded(true)}
+      style={{
+        opacity: loaded ? 1 : 0,
+        transition: 'opacity 300ms ease, transform 250ms ease',
+      }}
+    />
+  )
+}
+
 const Team = () => {
   const teamMembers = [
     {
       name: "Zakaria Sisu",
       role: "Software Developer",
       bio: "Dreams in code and thinks in possibilities. Zakaria bridges the gap between imagination and reality, turning wild ideas into tangible innovations.",
-      avatar: <img src={selassie} alt="Zakaria Sisu" className="member-avatar" />,
+      avatar: selassie,
       socialLinks: {
         linkedin: "https://www.linkedin.com/in/zakaria-sisu-9b2486239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         github: "https://github.com/Zakariasisu5",
@@ -26,7 +70,7 @@ const Team = () => {
       name: "Luut Iddrisu",
       role: "Frontend Developer",
       bio: "Where others see problems, Luut sees canvases. Her artistic vision transforms complex concepts into beautiful, intuitive experiences.",
-      avatar: <img src={cyber} alt="Luut Iddrisu" className="member-avatar" />,
+  avatar: cyber,
       socialLinks: {
         linkedin: "https://linkedin.com/in/luut-iddrisu",
         github: "https://github.com/luut-iddrisu",
@@ -37,7 +81,7 @@ const Team = () => {
       name: "Waliu Yelabeyiani Bukari",
       role: "Frontend Devoloper",
       bio: "The mastermind behind our technical foundation. Waliu builds systems that are not just functional, but elegant and scalable.",
-      avatar: <img src={consistency} alt="Waliu Bukari" className="member-avatar" />,
+  avatar: consistency,
       socialLinks: {
         linkedin: "https://linkedin.com/in/waliu-bukari",
         github: "https://github.com/waliu-bukari",
@@ -48,7 +92,7 @@ const Team = () => {
       name: "Kasim Major Sulemana",
       role: "Cybersecurity Expert",
       bio: "Kasim sees patterns others miss and connects dots across industries. His strategic thinking guides us toward meaningful impact.",
-      avatar: <img src={kasim} alt="Kasim Sulemana" className="member-avatar" />,
+  avatar: kasim,
       socialLinks: {
         linkedin: "https://linkedin.com/in/kasim-sulemana",
         github: "https://github.com/kasim-sulemana",
@@ -59,7 +103,7 @@ const Team = () => {
       name: "Peter Bedzra",
       role: "Web Developer",
       bio: "The spark that ignites breakthrough moments. Peter's curiosity and experimental mindset push us beyond conventional boundaries.",
-      avatar: <img src={peter} alt="Peter Bedzra" className="member-avatar" />,
+  avatar: peter,
       socialLinks: {
         linkedin: "https://linkedin.com/in/peter-bedzra",
         github: "https://github.com/peter-bedzra",
@@ -70,7 +114,7 @@ const Team = () => {
       name: "Wudana Jamaldeen",
       role: "Data Scientist",
       bio: "Wudana understands that great ideas need great communities. He creates connections that amplify our collective impact.",
-      avatar: <img src={wudana} alt="Wudana Jamaldeen" className="member-avatar" />,
+  avatar: wudana,
       socialLinks: {
         linkedin: "https://www.linkedin.com/in/jamaldeen-wudana-bbbb65359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         github: "https://github.com/MNCJaydeen1",
@@ -81,7 +125,7 @@ const Team = () => {
       name: "Aaron",
       role: "Web Developer",
       bio: "Aaron ensures every project creates real value. His focus on measurable outcomes keeps us grounded in purpose.",
-      avatar: <img src={Aaron} alt="Aaron" className="member-avatar" />,
+  avatar: Aaron,
       socialLinks: {
         linkedin: "https://linkedin.com/in/aaron-dev",
         github: "https://github.com/aaron-dev",
@@ -92,7 +136,7 @@ const Team = () => {
       name: "Tutu Miccah Godwin",
       role: "Innovation Strategist",
       bio: "Anticipates tomorrow's challenges today. This forward-thinking approach helps us stay ahead of the curve.",
-      avatar: <img src={tutu} alt="tutu" className="member-avatar" />,
+  avatar: tutu,
       socialLinks: {
         linkedin: "https://linkedin.com/in/future-thinker",
         github: "https://github.com/future-thinker",
@@ -119,7 +163,7 @@ const Team = () => {
             {teamMembers.map((member, index) => (
               <div key={index} className="team-member">
                 <div className="member-avatar">
-                  {member.avatar}
+                  <LazyImage src={member.avatar} alt={member.name} className="member-avatar-img" />
                 </div>
                 <div className="member-info">
                   <h3 className="member-name">{member.name}</h3>
