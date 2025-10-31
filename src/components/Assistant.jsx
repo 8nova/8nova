@@ -203,7 +203,7 @@ const Assistant = () => {
           <div className="assistant-header">
             <div className="assistant-header-content">
               <FaRobot className="assistant-icon" />
-              <h3 className="assistant-title">8novo Assistant</h3>
+              <h3 className="assistant-title">8nova Assistant</h3>
             </div>
             <button 
               className="assistant-close-btn"
