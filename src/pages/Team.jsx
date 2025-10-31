@@ -17,9 +17,9 @@ const Team = () => {
       bio: "Dreams in code and thinks in possibilities. Zakaria bridges the gap between imagination and reality, turning wild ideas into tangible innovations.",
       avatar: <img src={selassie} alt="Zakaria Sisu" className="member-avatar" />,
       socialLinks: {
-        linkedin: "https://linkedin.com/in/zakaria-sisu",
+        linkedin: "https://www.linkedin.com/in/zakaria-sisu-9b2486239?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
         github: "https://github.com/Zakariasisu5",
-        facebook: "https://facebook.com/zakaria.sisu"
+        facebook: "https://www.facebook.com/zakaria.sisu.568"
       }
     },
     {
@@ -72,9 +72,9 @@ const Team = () => {
       bio: "Wudana understands that great ideas need great communities. He creates connections that amplify our collective impact.",
       avatar: <img src={wudana} alt="Wudana Jamaldeen" className="member-avatar" />,
       socialLinks: {
-        linkedin: "https://linkedin.com/in/wudana-jamaldeen",
-        github: "https://github.com/wudana-jamaldeen",
-        facebook: "https://facebook.com/wudana.jamaldeen"
+        linkedin: "https://www.linkedin.com/in/jamaldeen-wudana-bbbb65359?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        github: "https://github.com/MNCJaydeen1",
+        facebook: "https://x.com/JayDeen636665?t=g1-WoMZNfnUSIiTQLGjgiQ&s=09"
       }
     },
     {
