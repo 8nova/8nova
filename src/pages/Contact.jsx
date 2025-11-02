@@ -107,7 +107,7 @@ const Contact = () => {
             <div style={{display: 'flex', flexDirection: 'column', gap: '1.5rem'}}>
               <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
                 <FaEnvelope style={{fontSize: '1.5rem', color: '#4db5ff'}} />
-                <span style={{color: 'rgba(255,255,255,0.9)'}}>zakariasisu5@gmail.com</span>
+                <span style={{color: 'rgba(255,255,255,0.9)'}}>8nova555@gmail.com</span>
               </div>
               <div style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
                 <FaGlobe style={{fontSize: '1.5rem', color: '#4db5ff'}} />

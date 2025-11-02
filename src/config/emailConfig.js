@@ -11,11 +11,11 @@ export const emailConfig = {
   serviceId: 'service_8nova', // Replace with your EmailJS service ID
   templateId: 'template_contact', // Replace with your EmailJS template ID
   publicKey: 'YOUR_EMAILJS_PUBLIC_KEY', // Replace with your EmailJS public key
-  toEmail: 'zakariasisu5@gmail.com'
+  toEmail: '8nova555@gmail.com'
 }
 
 // EmailJS Template Variables:
 // {{from_name}} - Sender's name
 // {{from_email}} - Sender's email
 // {{message}} - Message content
-// {{to_email}} - Recipient email (zakariasisu5@gmail.com)
+// {{to_email}} - Recipient email (8nova555@gmail.com)

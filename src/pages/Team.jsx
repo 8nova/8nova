@@ -90,7 +90,7 @@ const Team = () => {
     },
     {
       name: "Kasim Major Sulemana",
-      role: "Cybersecurity Expert",
+      role: "Civic Tech, Cybersecurity(GRC)",
       bio: "Kasim sees patterns others miss and connects dots across industries. His strategic thinking guides us toward meaningful impact.",
   avatar: kasim,
       socialLinks: {

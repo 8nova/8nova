@@ -2,7 +2,7 @@
 
 ## EmailJS Configuration
 
-The contact form is set up to send emails to `zakariasisu5@gmail.com` using EmailJS. Follow these steps to complete the setup:
+The contact form is set up to send emails to `8nova555@gmail.com` using EmailJS. Follow these steps to complete the setup:
 
 ### 1. Create EmailJS Account
 - Go to [https://www.emailjs.com/](https://www.emailjs.com/)
@@ -55,7 +55,7 @@ This message was sent from the 8Nova website contact form.
 
 ## Fallback Option
 
-If EmailJS is not configured, the form will automatically fall back to opening the user's default email client with a pre-filled message to `zakariasisu5@gmail.com`.
+If EmailJS is not configured, the form will automatically fall back to opening the user's default email client with a pre-filled message to `8nova555@gmail.com`.
 
 ## Security Notes
 
