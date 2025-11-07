@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 import './Navigation.css'
-import Logo from "../assets/logo.jpg"
+import Logo from "../assets/8nova1.png"
 import { FaHome, FaUsers, FaBullseye, FaFolderOpen, FaEnvelope, FaBars, FaTimes } from 'react-icons/fa';
 
 const Navigation = () => {
